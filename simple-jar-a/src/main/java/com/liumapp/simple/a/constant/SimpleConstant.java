@@ -7,7 +7,7 @@ package com.liumapp.simple.a.constant;
  * @homepage http://www.liumapp.com
  * @date 4/3/18
  */
-public class SimpleAConstant {
+public class SimpleConstant {
 
     public static final String activeInfo = "activeInfo";
 
