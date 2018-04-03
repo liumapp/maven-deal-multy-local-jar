@@ -1,4 +1,4 @@
-package com.liumapp.simple.property;
+package com.liumapp.simple.a.property;
 
 import org.apache.commons.io.IOUtils;
 

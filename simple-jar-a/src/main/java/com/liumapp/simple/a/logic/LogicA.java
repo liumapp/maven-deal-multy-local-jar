@@ -1,7 +1,7 @@
-package com.liumapp.simple.logic;
+package com.liumapp.simple.a.logic;
 
-import com.liumapp.simple.constant.SimpleAConstant;
-import com.liumapp.simple.property.Properties;
+import com.liumapp.simple.a.constant.SimpleAConstant;
+import com.liumapp.simple.a.property.Properties;
 
 public class LogicA {
 

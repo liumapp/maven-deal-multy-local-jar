@@ -1,4 +1,4 @@
-package com.liumapp.simple.constant;
+package com.liumapp.simple.a.constant;
 
 /**
  * @author liumapp
