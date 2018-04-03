@@ -62,7 +62,7 @@
                     <descriptors>
                         <descriptor>src/main/resources/assembly/release.xml</descriptor>
                     </descriptors>
-                    <outputDirectory>output</outputDirectory><!--该目录为最终jar包输入目录-->
+                    <outputDirectory>target</outputDirectory><!--该目录为最终jar包输入目录-->
                 </configuration>
             </plugin>
 
