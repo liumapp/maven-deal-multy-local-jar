@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <parent>
         <groupId>com.liumapp</groupId>
         <artifactId>maven-deal-multy-local-jar</artifactId>
@@ -10,20 +11,32 @@
     <groupId>com.liumapp.using</groupId>
     <artifactId>using-local-jars</artifactId>
     <name>using-local-jars</name>
+    <version>v1.0.0</version>
     <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
     <url>http://www.liumapp.com</url>
 
     <dependencies>
         <dependency>
+            <groupId>org.apache.commons.io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/commons-io-2.5.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>com.liumapp.simple</groupId>
             <artifactId>simple-jar-a</artifactId>
             <version>v1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/simple-jar-a-v1.0.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.liumapp.simple</groupId>
             <artifactId>simple-jar-b</artifactId>
             <version>v1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/simple-jar-b-v1.0.0.jar</systemPath>
         </dependency>
     </dependencies>
 
@@ -37,6 +50,38 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>./lib</classpathPrefix>
+                            <mainClass>com.liumapp.using.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
