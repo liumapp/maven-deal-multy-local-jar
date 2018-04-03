@@ -22,6 +22,10 @@ public class Properties implements Serializable {
 
     private String content;
 
+    public Properties(String path) throws IOException {
+        this(new Content(path).getContent() , "UTF-8");
+    }
+
     public Properties(String content, String encoding) throws IOException {
         this.content = content;
 
