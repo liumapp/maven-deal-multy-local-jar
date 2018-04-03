@@ -14,4 +14,31 @@
     <modelVersion>4.0.0</modelVersion>
     <url>http://www.liumapp.com</url>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.liumapp.simple</groupId>
+            <artifactId>simple-jar-a</artifactId>
+            <version>v1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.liumapp.simple</groupId>
+            <artifactId>simple-jar-b</artifactId>
+            <version>v1.0.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

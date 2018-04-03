@@ -22,14 +22,18 @@ public class Properties implements Serializable {
 
     private String content;
 
-    public Properties(String content, String encoding) throws IOException {
+    public Properties(String path) throws IOException {
+        this(new Content(path).getContent() , "UTF-8");
+    }
+
+    public Properties(String content , String readEncoding) throws IOException {
         this.content = content;
 
         InputStream inputStream = null;
         Reader reader = null;
         try {
-            inputStream = IOUtils.toInputStream(content, encoding);
-            reader = new InputStreamReader(inputStream, encoding);
+            inputStream = IOUtils.toInputStream(content, readEncoding);
+            reader = new InputStreamReader(inputStream, readEncoding);
 
             java.util.Properties properties = new java.util.Properties();
             properties.load(reader);
