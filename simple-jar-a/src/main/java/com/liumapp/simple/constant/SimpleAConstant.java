@@ -9,6 +9,6 @@ package com.liumapp.simple.constant;
  */
 public class SimpleAConstant {
 
-
+    public static final String activeInfo = "activeInfo";
 
 }
