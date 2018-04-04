@@ -17,27 +17,27 @@
     <url>http://www.liumapp.com</url>
 
     <dependencies>
-        <!--<dependency>-->
-            <!--<groupId>org.apache.commons.io</groupId>-->
-            <!--<artifactId>commons-io</artifactId>-->
-            <!--<version>2.5</version>-->
-            <!--<scope>system</scope>-->
-            <!--<systemPath>${basedir}/lib/commons-io-2.5.jar</systemPath>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.commons.io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/commons-io-2.5.jar</systemPath>
+        </dependency>
         <dependency>
             <groupId>com.liumapp.simple</groupId>
             <artifactId>simple-jar-a</artifactId>
             <version>v1.0.0</version>
             <scope>system</scope>
-            <systemPath>${basedir}/lib/simple-jar-a-v1.0.0-with-dependencies.jar</systemPath>
+            <systemPath>${basedir}/lib/simple-jar-a-v1.0.0.jar</systemPath>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>com.liumapp.simple</groupId>-->
-            <!--<artifactId>simple-jar-b</artifactId>-->
-            <!--<version>v1.0.0</version>-->
-            <!--<scope>system</scope>-->
-            <!--<systemPath>${basedir}/lib/simple-jar-b-v1.0.0.jar</systemPath>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.liumapp.simple</groupId>
+            <artifactId>simple-jar-b</artifactId>
+            <version>v1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/simple-jar-b-v1.0.0.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
@@ -80,6 +80,27 @@
                             <overWriteSnapshots>false</overWriteSnapshots>
                             <overWriteIfNewer>true</overWriteIfNewer>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4</version>
+                <!-- The configuration of the plugin -->
+                <configuration>
+                    <!-- Specifies the configuration file of the assembly plugin -->
+                    <descriptors>
+                        <descriptor>src/main/assembly/package.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>

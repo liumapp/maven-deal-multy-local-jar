@@ -13,9 +13,9 @@ public class Main {
         Logic logica = new Logic(properties);
         logica.saySomething();
 
-//        com.liumapp.simple.b.property.Properties properties2 = new com.liumapp.simple.b.property.Properties("config/simple-jar-b.properties");
-//        com.liumapp.simple.b.logic.Logic logicb = new com.liumapp.simple.b.logic.Logic(properties2);
-//        logicb.saySomething();
+        com.liumapp.simple.b.property.Properties properties2 = new com.liumapp.simple.b.property.Properties("config/simple-jar-b.properties");
+        com.liumapp.simple.b.logic.Logic logicb = new com.liumapp.simple.b.logic.Logic(properties2);
+        logicb.saySomething();
     }
 
 }
