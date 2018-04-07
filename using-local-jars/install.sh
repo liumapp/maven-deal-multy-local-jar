@@ -19,13 +19,16 @@ export localM2=/usr/local/tomcat/project/maven-deal-multy-local-jar/using-local-
 
 mvn install:install-file -Dfile=lib/commons-io-2.5.jar -DgroupId=org.apache.commons.io \
                          -DartifactId=commons-io -Dversion=2.5 \
-                         -Dpackaging=jar -DlocalRepositoryPath=${localM2}
+                         -Dpackaging=jar -DlocalRepositoryPath=${localM2} \
+                         -DupdateReleaseInfo=true
 
 mvn install:install-file -Dfile=lib/simple-jar-a-v1.0.0.jar -DgroupId=com.liumapp.simple \
                          -DartifactId=simple-jar-a -Dversion=v1.0.0 \
-                         -Dpackaging=jar -DlocalRepositoryPath=${localM2}
+                         -Dpackaging=jar -DlocalRepositoryPath=${localM2} \
+                         -DupdateReleaseInfo=true
 
 mvn install:install-file -Dfile=lib/simple-jar-b-v1.0.0.jar -DgroupId=com.liumapp.simple \
                          -DartifactId=simple-jar-b -Dversion=v1.0.0 \
-                         -Dpackaging=jar -DlocalRepositoryPath=${localM2}
+                         -Dpackaging=jar -DlocalRepositoryPath=${localM2} \
+                         -DupdateReleaseInfo=true
 
