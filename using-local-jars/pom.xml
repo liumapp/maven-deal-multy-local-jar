@@ -33,15 +33,11 @@
             <groupId>com.liumapp.simple</groupId>
             <artifactId>simple-jar-a</artifactId>
             <version>v1.0.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/simple-jar-a-v1.0.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.liumapp.simple</groupId>
             <artifactId>simple-jar-b</artifactId>
             <version>v1.0.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/simple-jar-b-v1.0.0.jar</systemPath>
         </dependency>
     </dependencies>
 
