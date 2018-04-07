@@ -14,15 +14,17 @@ echo '.'
 
 mvn -v
 
+export localM2=/Users/liumeishengqi/.m2/repository
+
 mvn install:install-file -Dfile=lib/commons-io-2.5.jar -DgroupId=org.apache.commons.io \
                          -DartifactId=commons-io -Dversion=2.5 \
-                         -Dpackaging=jar -DlocalRepositoryPath=/Users/liumeishengqi/.m2/repository
+                         -Dpackaging=jar -DlocalRepositoryPath=${localM2}
 
 mvn install:install-file -Dfile=lib/simple-jar-a-v1.0.0.jar -DgroupId=com.liumapp.simple \
                          -DartifactId=simple-jar-a -Dversion=v1.0.0 \
-                         -Dpackaging=jar -DlocalRepositoryPath=/Users/liumeishengqi/.m2/repository
+                         -Dpackaging=jar -DlocalRepositoryPath=${localM2}
 
 mvn install:install-file -Dfile=lib/simple-jar-b-v1.0.0.jar -DgroupId=com.liumapp.simple \
                          -DartifactId=simple-jar-b -Dversion=v1.0.0 \
-                         -Dpackaging=jar -DlocalRepositoryPath=/Users/liumeishengqi/.m2/repository
+                         -Dpackaging=jar -DlocalRepositoryPath=${localM2}
 

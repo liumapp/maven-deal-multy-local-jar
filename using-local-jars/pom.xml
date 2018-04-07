@@ -19,7 +19,7 @@
     <repositories>
         <repository>
             <id>local-repository</id>
-            <url>file://${basedir}/lib/</url>
+            <url>/Users/liumeishengqi/.m2/repository</url>
         </repository>
     </repositories>
 
