@@ -18,8 +18,8 @@
 
     <repositories>
         <repository>
-            <id>local-repository</id>
-            <url>/Users/liumeishengqi/.m2/repository</url>
+            <id>repo</id>
+            <url>file://${basedir}/repo</url>
         </repository>
     </repositories>
 
