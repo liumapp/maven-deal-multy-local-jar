@@ -18,8 +18,10 @@
 
     <repositories>
         <repository>
-            <id>repo</id>
-            <url>file://${basedir}/repo</url>
+            <id>my-repo</id>
+            <url>file:///Users/liumeishengqi/.m2/repository</url>
+            <releases><enabled>true</enabled><updatePolicy>always</updatePolicy></releases>
+            <snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>
         </repository>
     </repositories>
 
