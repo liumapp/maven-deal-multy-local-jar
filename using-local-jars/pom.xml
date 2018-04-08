@@ -16,15 +16,6 @@
     <modelVersion>4.0.0</modelVersion>
     <url>http://www.liumapp.com</url>
 
-    <!--<repositories>-->
-        <!--<repository>-->
-            <!--<id>my-repo</id>-->
-            <!--<url>file://${basedir}/my-repo</url>-->
-            <!--<releases><enabled>true</enabled><updatePolicy>always</updatePolicy></releases>-->
-            <!--<snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>-->
-        <!--</repository>-->
-    <!--</repositories>-->
-
     <dependencies>
         <dependency>
             <groupId>org.apache.commons.io</groupId>
