@@ -15,7 +15,7 @@ echo '.'
 mvn -v
 
 #export localM2=/Users/liumeishengqi/.m2/repository
-export localM2=/usr/local/tomcat/project/maven-deal-multy-local-jar/using-local-jars/repo
+export localM2=/usr/local/tomcat/project/maven-deal-multy-local-jar/using-local-jars/my-repo
 
 mvn install:install-file -Dfile=lib/commons-io-2.5.jar -DgroupId=org.apache.commons.io \
                          -DartifactId=commons-io -Dversion=2.5 \

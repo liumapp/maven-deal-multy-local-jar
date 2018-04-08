@@ -16,30 +16,36 @@
     <modelVersion>4.0.0</modelVersion>
     <url>http://www.liumapp.com</url>
 
-    <repositories>
-        <repository>
-            <id>my-repo</id>
-            <url>file:///Users/liumeishengqi/.m2/repository</url>
-            <releases><enabled>true</enabled><updatePolicy>always</updatePolicy></releases>
-            <snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>
-        </repository>
-    </repositories>
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>my-repo</id>-->
+            <!--<url>file://${basedir}/my-repo</url>-->
+            <!--<releases><enabled>true</enabled><updatePolicy>always</updatePolicy></releases>-->
+            <!--<snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>-->
+        <!--</repository>-->
+    <!--</repositories>-->
 
     <dependencies>
         <dependency>
             <groupId>org.apache.commons.io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.5</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/commons-io-2.5.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.liumapp.simple</groupId>
             <artifactId>simple-jar-a</artifactId>
             <version>v1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/simple-jar-a-v1.0.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.liumapp.simple</groupId>
             <artifactId>simple-jar-b</artifactId>
             <version>v1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/simple-jar-b-v1.0.0.jar</systemPath>
         </dependency>
     </dependencies>
 
@@ -48,51 +54,50 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
-                <!-- The configuration of the plugin -->
                 <configuration>
-                    <!-- Configuration of the archiver -->
                     <archive>
-                        <!--生成的jar中，不要包含pom.xml和pom.properties这两个文件-->
-                        <addMavenDescriptor>false</addMavenDescriptor>
-                        <!-- Manifest specific configuration -->
                         <manifest>
-                            <!--是否要把第三方jar放到manifest的classpath中-->
                             <addClasspath>true</addClasspath>
-                            <!--生成的manifest中classpath的前缀，因为要把第三方jar放到lib目录下，所以classpath的前缀是lib/-->
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <!--应用的main class-->
+                            <classpathPrefix>${basedir}/lib/</classpathPrefix>
                             <mainClass>com.liumapp.using.Main</mainClass>
                         </manifest>
                     </archive>
-                    <!--过滤掉不希望包含在jar中的文件
-                    <excludes>
-                        <exclude>${project.basedir}/xml/*</exclude>
-                    </excludes>
-                    -->
                 </configuration>
             </plugin>
-            <!-- The configuration of maven-assembly-plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.4</version>
-                <!-- The configuration of the plugin -->
-                <configuration>
-                    <!-- Specifies the configuration file of the assembly plugin -->
-                    <descriptors>
-                        <descriptor>src/main/resources/assembly/package.xml</descriptor>
-                    </descriptors>
-                </configuration>
+                <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>make-assembly</id>
+                        <id>copy-dependencies</id>
                         <phase>package</phase>
                         <goals>
-                            <goal>single</goal>
+                            <goal>copy-dependencies</goal>
                         </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
             </plugin>
         </plugins>
     </build>
