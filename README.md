@@ -3,6 +3,8 @@ Maven batch processing local jars .
 
 ## how to use
 
+[中文文档](http://www.liumapp.com/articles/2018/04/10/1523359175512.html)
+
 * simple-jar-a and simple-jar-b is two simple projects . To simulate multiple local jar packages and their dependencies .
 
 * the main project is using-local-jars . 
